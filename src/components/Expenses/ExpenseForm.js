@@ -1,5 +1,6 @@
 import { useState } from "react";
 import './ExpenseForm.css';
+import AddExpense from "./AddExpense";
 
 const ExpenseForm = (props) => {
 
@@ -106,6 +107,11 @@ const ExpenseForm = (props) => {
     //     })
     // }
 
+    const [removeForm , setRemoveForm] = useState(false)
+    if(removeForm == true){
+        return <AddExpense></AddExpense>
+    }
+
     return (
         <div className="new-expense">
             <h3>Add New Expense</h3>
@@ -133,9 +139,17 @@ const ExpenseForm = (props) => {
 
                 </div>
 
-                <div className="new-expense__actions">
-                        <button type="submit">Add Expense</button>
+                <div className="formBtn">
+                        <div className="new-expense__actions">
+                                <button onClick={()=>setRemoveForm(true)}>Cancel</button>
+                        </div>
+
+                        <div className="new-expense__actions">
+                                <button type="submit">Add Expense</button>
+                        </div>
                 </div>
+
+                
 {/*                   
                   <input type="text" placeholder='Expense title' id = 'title'></input>
                   <br></br>

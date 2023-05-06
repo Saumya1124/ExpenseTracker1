@@ -4,6 +4,7 @@ import ExpenseItem from "./components/Expenses/ExpenseItem";
 import ExpenseForm from "./components/Expenses/ExpenseForm";
 import ExpensesFilter from "./components/Expenses/ExpenseFilter";
 import ExpensesList from "./components/Expenses/ExpensesList";
+import AddExpense from "./components/Expenses/AddExpense";
 
 function App() {
 
@@ -71,9 +72,12 @@ function App() {
       {/* <div>{data}</div> */}
 
 
-      <ExpenseForm onSaveData = {saveExpenseHandler}></ExpenseForm>
+      {/* <ExpenseForm onSaveData = {saveExpenseHandler}></ExpenseForm> */}
+      <AddExpense item = {saveExpenseHandler}></AddExpense>
       <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
       <ExpensesList item={filteredExpenses}/>
+
+      
       
       
       
