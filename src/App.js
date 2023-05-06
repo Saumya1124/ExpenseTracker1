@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 import ExpenseForm from "./components/Expenses/ExpenseForm";
 import ExpensesFilter from "./components/Expenses/ExpenseFilter";
+import ExpensesList from "./components/Expenses/ExpensesList";
 
 function App() {
 
@@ -72,17 +73,8 @@ function App() {
 
       <ExpenseForm onSaveData = {saveExpenseHandler}></ExpenseForm>
       <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
-
-      {filteredExpenses.map((expense) => 
-          <ExpenseItem 
-            key = {expense.id}
-            title = {expense.title}
-            amount = {expense.amount}
-            date = {expense.date}
-          />
-           
-        
-      )}
+      <ExpensesList item={filteredExpenses}/>
+      
       
       
       {/* <ExpenseItem title={expenses[0].title} amount={expenses[0].amount} date={expenses[0].date} location={expenses[0].location}></ExpenseItem>
